@@ -8,7 +8,7 @@ import { lastValueFrom } from 'rxjs';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes, withViewTransitions()),
+    provideRouter(routes, withViewTransitions( )),
     provideHttpClient(),
     provideAppInitializer(async () => {
       const initService = inject(InitService)
