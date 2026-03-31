@@ -24,12 +24,16 @@
 
     <nav class="flex gap-3 my-2 uppercase text-white text-lg">
       @if (accountService.currentUser()) {
-      <a routerLink="/members" routerLinkActive="text-accent">Matches</a>
+      <a
+        routerLink="/members"
+        routerLinkActive="text-accent"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Matches</a
+      >
       <a routerLink="/lists" routerLinkActive="text-accent">List</a>
-      <a routerLink="/messages" routerLinkActive="text-accent">Message</a> 
+      <a routerLink="/messages" routerLinkActive="text-accent">Message</a>
       }
-      <a routerLink="/errors" routerLinkActive="text-accent">Errors </a> 
-
+      <a routerLink="/errors" routerLinkActive="text-accent">Errors </a>
     </nav>
     <div class="flex align-middle ml-auto gap-3">
       @if (accountService.currentUser(); as user) {
@@ -39,7 +43,11 @@
           role="button"
           class="flex items-center text-white text-xl gap-3 cursor-pointer"
         >
-          <img [src]="user?.imageUrl || '/user.png'" alt="user avatar" class="w-10 h-10 rounded-full" />
+          <img
+            [src]="user?.imageUrl || '/user.png'"
+            alt="user avatar"
+            class="w-10 h-10 rounded-full"
+          />
           <span>{{ user.displayName }}</span>
         </div>
         <ul
